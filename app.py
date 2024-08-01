@@ -23,6 +23,16 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/<int:id>')
+def course(id):
+    article = Product.query.get_or_404(id)
+    try:
+        db.session.delete(article)
+        db.session.commit()
+        return redirect("/")
+    except:
+        return "Ошибка удаления"
+
 @app.route('/contacts')
 def contacts():
     return render_template('contacts.html')

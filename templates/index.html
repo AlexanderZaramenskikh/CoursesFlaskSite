@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Главная</title>
+{% endblock %}
+
+{% block body %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal text-body-emphasis">Курсы</h1>
+      <p class="fs-5 text-body-secondary">Хотите освоить востребованную профессию и начать зарабатывать больше? Наши курсы по программированию помогут вам достичь этой цели!</p>
+</div>
+
+    <div class="row text-center">
+{% for i in products %}
+<div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">{{ i.title }}</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">{{ i.price }}<small class="text-body-secondary fw-light">RUB</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+                <h4>Описание:</h4>
+              <li>{{ i.text }}</li>
+            </ul>
+            <a href="/" class="w-100 btn btn-lg btn-outline-primary">Купить</a>
+          </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
